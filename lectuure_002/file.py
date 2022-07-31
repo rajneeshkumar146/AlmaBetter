@@ -102,14 +102,119 @@ def pattern_06(N):
         nst += 1
         print()
 
-def pattern_binomialSeries(N):
+
+def pattern07_binomialSeries(N):
     nst = 1
     for n in range(0, N):
         # star
         val = 1
         for r in range(0, nst):
             print(val, " ", end="")
-            
+            val = (n - r) * val / (r + 1)
 
         nst += 1
+        print()
+
+
+def pattern08_pyramid(N):
+    nst = 1
+    nsp = N - 1
+
+    for r in range(1, N + 1):
+        # spaces
+        for csp in range(1, nsp + 1):
+            print("  ", end="")
+
+        # star
+        for cst in range(1, nst + 1):
+            print("* ", end="")
+
+        nst += 2
+        nsp -= 1
+        print()
+
+
+def pattern09_inversePyramid(N):
+    nst = 2 * N - 1
+    nsp = 0
+
+    for r in range(1, N + 1):
+        # spaces
+        for csp in range(1, nsp + 1):
+            print("  ", end="")
+
+        # star
+        for cst in range(1, nst + 1):
+            print("* ", end="")
+
+        nst -= 2
+        nsp += 1
+        print()
+
+
+def pattern09_NumberPyramid(N):
+    nst = 1
+    nsp = N - 1
+
+    for r in range(1, N + 1):
+        # spaces
+        for csp in range(1, nsp + 1):
+            print("  ", end="")
+
+        # star
+        count = 1
+        for cst in range(1, nst + 1):
+            print(count, " ", end="")
+            if cst <= nst / 2:
+                count += 1
+            else:
+                count -= 1
+
+        nst += 2
+        nsp -= 1
+        print()
+
+
+def pattern10_NumberPyramid_02(N):
+    nst = 1
+    nsp = N - 1
+
+    for r in range(1, N + 1):
+        # spaces
+        for csp in range(1, nsp + 1):
+            print("  ", end="")
+
+        # star
+        val = 1
+        for cst in range(1, nst + 1):
+            print(val, " ", end="")
+            if cst <= nst / 2:
+                val *= 2
+            else:
+                val /= 2
+
+        nst += 2
+        nsp -= 1
+        print()
+
+
+def pattern11_diamond(N):
+    nst = 1
+    nsp = N / 2
+
+    for r in range(1, N + 1):
+        # spaces
+        for csp in range(1, nsp + 1):
+            print("  ", end="")
+
+        # star
+        for cst in range(1, nst + 1):
+            print("* ", end="")
+
+        if r <= N / 2:
+            nst += 2
+            nsp -= 1
+        else:
+            nsp += 1
+            nst -= 2
         print()
