@@ -72,3 +72,19 @@ def pattern_04(N):
 
         nst -= 1
         print()
+
+
+def pattern_05(N):
+    nst = 1
+    count = 1
+    for r in range(1, N + 1):
+        # star
+        for cst in range(1, nst + 1):
+            print(count, " ", end="")
+            count += 1
+
+        nst += 1
+        print()
+
+
+def pattern_06():
