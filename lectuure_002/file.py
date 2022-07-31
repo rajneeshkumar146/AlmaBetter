@@ -103,3 +103,13 @@ def pattern_06(N):
         print()
 
 def pattern_binomialSeries(N):
+    nst = 1
+    for n in range(0, N):
+        # star
+        val = 1
+        for r in range(0, nst):
+            print(val, " ", end="")
+            
+
+        nst += 1
+        print()
