@@ -8,19 +8,67 @@ def pattern_01(N):
     nst = 1
     nsp = N - 1
 
-    for r in range (1, N + 1):
+    for r in range(1, N + 1):
         # spaces
-        for csp in range(1 , nsp + 1):
-            print("  ", end = "")
+        for csp in range(1, nsp + 1):
+            print("  ", end="")
 
         # stars
         for cst in range(1, nst + 1):
-            print("* ", end = "")
+            print("* ", end="")
 
         nst += 1
         nsp -= 1
         print()
 
 
+def pattern_02(N):
+    nst = N
+    nsp = 0
+
+    for r in range(1, N + 1):
+        # spaces
+        for csp in range(1, nsp + 1):
+            print("  ", end="")
+
+        # star
+        for cst in range(1, nst + 1):
+            print("* ", end="")
+
+        nst -= 1
+        nsp += 1
+        print()
 
 
+def pattern_03(N):
+    nst = 1
+    nsp = 0
+
+    for r in range(1, N + 1):
+        # spaces
+        for csp in range(1, nsp + 1):
+            print("  ", end="")
+
+        # star
+        for cst in range(1, nst + 1):
+            print("* ", end="")
+
+        nst += 1
+        print()
+
+
+def pattern_04(N):
+    nst = N
+    nsp = 0
+
+    for r in range(1, N + 1):
+        # spaces
+        for csp in range(1, nsp + 1):
+            print("  ", end="")
+
+        # star
+        for cst in range(1, nst + 1):
+            print("* ", end="")
+
+        nst -= 1
+        print()
