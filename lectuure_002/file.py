@@ -87,4 +87,19 @@ def pattern_05(N):
         print()
 
 
-def pattern_06():
+def pattern_06(N):
+    nst = 1
+    a = 0
+    b = 1
+    for r in range(1, N + 1):
+        # star
+        for cst in range(1, nst + 1):
+            print(a, " ", end="")
+            sum = a + b
+            a = b
+            b = sum
+
+        nst += 1
+        print()
+
+def pattern_binomialSeries(N):
