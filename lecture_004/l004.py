@@ -106,11 +106,11 @@ def findRange_02(arr, data):
 
 
 # https://leetcode.com/problems/merge-sorted-array/
-
+# T: O(N + M), S: O(N + M)
 def merge(nums1, n, nums2, m):
     arr = []
 
-    i, j = 0,0
+    i, j = 0, 0
     while i < n and j < m:
         if nums1[i] < nums2[j]:
             arr.append(nums1[i])
@@ -119,5 +119,13 @@ def merge(nums1, n, nums2, m):
             arr.append(nums2[j])
             j += 1
 
+    while i < n:
+        arr.append(nums1[i])
+        i += 1
 
-    return arr
+    while j < m:
+        arr.append(nums2[j])
+        j += 1
+
+    for i in range(n + m):
+        nums1[i] = arr[i]
