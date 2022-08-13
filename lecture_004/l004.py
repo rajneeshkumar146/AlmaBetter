@@ -1,4 +1,4 @@
-
+import numpy as np
 # T: O(LogN), S: O(1)
 from re import L
 
@@ -106,3 +106,18 @@ def findRange_02(arr, data):
 
 
 # https://leetcode.com/problems/merge-sorted-array/
+
+def merge(nums1, n, nums2, m):
+    arr = []
+
+    i, j = 0,0
+    while i < n and j < m:
+        if nums1[i] < nums2[j]:
+            arr.append(nums1[i])
+            i += 1
+        else:
+            arr.append(nums2[j])
+            j += 1
+
+
+    return arr
