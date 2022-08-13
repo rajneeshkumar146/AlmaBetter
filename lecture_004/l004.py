@@ -78,13 +78,31 @@ def findStartingIndex(arr, data):
     return -1
 
 # O(Log(N))
-def findEndingIndex(arr, data):
 
+
+def findEndingIndex(arr, data):
+    l, si, ei = len(arr), 0, l - 1
+
+    while si <= ei:
+        mid = (si + ei) // 2
+        if arr[mid] == data:
+            if mid + 1 < l and arr[mid + 1] == data:
+                si = mid + 1
+            else:
+                return mid
+        elif arr[mid] < data:
+            si = mid + 1
+        else:
+            ei = mid - 1
     return -1
 
-
 # O(Log(N))
+
+
 def findRange_02(arr, data):
     sr = findStartingIndex(arr, data)
     er = findEndingIndex(arr, data)
     print("range: (", sr, ", ", er, ")")
+
+
+# https://leetcode.com/problems/merge-sorted-array/
