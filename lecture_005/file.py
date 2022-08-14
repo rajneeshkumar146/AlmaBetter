@@ -56,6 +56,3 @@ def twoSum(arr, tar, si, ei):
             ei -= 1
     
     return ans
-
-def threeSum(self, nums: List[int]) -> List[List[int]]:
-     
