@@ -33,3 +33,29 @@ def twoSum_03(numbers: List[int], target: int) -> List[int]:
             ei -= 1
 
     return []
+
+
+def twoSum(arr, tar, si, ei):
+    ans = []
+    while si < ei:
+        sum = arr[si] + arr[ei]
+
+        if sum == tar:
+            ans.append([si, ei])
+            si += 1
+            ei -= 1
+
+            while si < ei and arr[si] == arr[si - 1]:
+                si += 1
+            while si < ei and arr[ei] == arr[ei + 1]:
+                ei -= 1
+
+        elif sum < tar:
+            si += 1
+        else:
+            ei -= 1
+    
+    return ans
+
+def threeSum(self, nums: List[int]) -> List[List[int]]:
+     
