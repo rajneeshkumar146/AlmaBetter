@@ -22,6 +22,8 @@ def convertLargeCharacterSmall(ch):
     return chr(ord(ch) - ord('A') + ord('a'))
 
 # T: O(N)
+
+
 def upper(str):
     l = len(str)
     ans = ""
@@ -35,10 +37,31 @@ def upper(str):
     return ans
 
 
-def lower():
+def lower(str):
+    l = len(str)
+    ans = ""
 
+    for i in range(l):
+        if isUpperCase(str[i]):
+            ans += convertLargeCharacterSmall(str[i])
+        else:
+            ans += str[i]
+
+    return ans
 
 
 # akASD1543*&^ -> AKasd1543*&^
 # small -> Large, Large -> small, rest will same
-def toggleCharcters():
+def toggleCharacters():
+    l = len(str)
+    ans = ""
+
+    for i in range(l):
+        if isUpperCase(str[i]):
+            ans += convertLargeCharacterSmall(str[i])
+        elif isLowerCase(str[i]):
+            ans += convertSmallCharacterLarge(str[i])
+        else:
+            ans += str[i]
+
+    return ans
