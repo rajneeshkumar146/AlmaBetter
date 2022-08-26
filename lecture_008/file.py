@@ -2,31 +2,37 @@ def ppppppp(a, b):
     return
 
 def pppppp(a, b):
-    print(a)
+    print("hi: ", a)
     ppppppp(a+1, b)
+    print("bye: ", a)
 
 def ppppp(a, b):
-    print(a)
+    print("hi: ", a)
     pppppp(a+1, b)
+    print("bye: ", a)
 
 def pppp(a, b):
-    print(a)
+    print("hi: ", a)
     ppppp(a+1, b)
+    print("bye: ", a)
 
 
 def ppp(a, b):
-    print(a)
+    print("hi: ", a)
     pppp(a+1, b)
+    print("bye: ", a)
 
 
 def pp(a, b):
-    print(a)
+    print("hi: ", a)
     ppp(a+1, b)
+    print("bye: ", a)
 
 
 def p(a, b):
-    print(a)
+    print("hi: ", a)
     pp(a+1, b)
+    print("bye: ", a)
 
 
 
