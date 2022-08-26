@@ -2,15 +2,18 @@ def ppppppp(a, b):
     print("Hi There I'm Base case, It's Time to go back Simon")
     return
 
+
 def pppppp(a, b):
     print("hi: ", a)
     ppppppp(a+1, b)
     print("bye: ", a)
 
+
 def ppppp(a, b):
     print("hi: ", a)
     pppppp(a+1, b)
     print("bye: ", a)
+
 
 def pppp(a, b):
     print("hi: ", a)
@@ -36,8 +39,7 @@ def p(a, b):
     print("bye: ", a)
 
 
-
-#===============================================================
+# ===============================================================
 
 # MLE : Memory Limit Exceed
 # TLE: Time Limit Exceed
@@ -65,8 +67,39 @@ def printDecreasing(a, b):
     print(a)
 
 
-def printIncraesingDecreasing(a,b):
+def printIncreasingDecreasing(a, b):
+    if (a == b):
+        print(a)
+        return
+
+    print(a)
+    printIncreasingDecreasing(a + 1, b)
+    print(a)
 
 
+def printIncraesingDecreasing_02(a, b):
+    if (a == b):
+        print(a)
+        return
 
-def printIncraesingDecreasing_02(a,b):
+    print(a)
+    printIncraesingDecreasing_02(a + 1, b)
+    print(a)
+
+
+def printTable(a, i):
+    if i > 10:
+        return
+
+    print(a, " X ", i, " = ", a * i)
+    printTable(a, i + 1)
+
+
+def printTableInRange(a,b):
+
+
+# 5! = 120
+def factorial(n):
+
+
+def power(a,b):
