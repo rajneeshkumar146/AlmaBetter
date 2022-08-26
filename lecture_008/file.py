@@ -1,3 +1,6 @@
+from cgitb import small
+
+
 def ppppppp(a, b):
     print("Hi There I'm Base case, It's Time to go back Simon")
     return
@@ -95,11 +98,45 @@ def printTable(a, i):
     printTable(a, i + 1)
 
 
-def printTableInRange(a,b):
+def printTableInRange(a, b):
+    if a > b:
+        return
 
+    printTable(a, 1)
+    print()
+    printTableInRange(a + 1, b)
 
-# 5! = 120
 def factorial(n):
+    if n == 0:
+        return 1
+
+    smallAns = factorial(n - 1)
+    return smallAns * n
 
 
-def power(a,b):
+def factorial_02(n):
+    return 1 if n == 0 else factorial_02(n - 1) * n
+
+
+# T and S: O(N)
+def power(a, b):
+    if b == 0:
+        return 1
+
+    smallAns = power(a, b - 1)
+    return smallAns * a
+
+def power_02(a, b):
+    return 1 if b == 0 else power_02(a, b - 1) * a
+
+
+# T and S: O(Log(N))
+def powerBtr(a, b):
+    if b == 0:
+        return 1
+
+
+    smallAns = powerBtr(a, b // 2)
+    smallAns *= smallAns
+
+    return smallAns if (b % 2 == 0) else (smallAns * a)
