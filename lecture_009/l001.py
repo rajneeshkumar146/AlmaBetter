@@ -66,7 +66,6 @@ def maximum(arr, idx):
     return max(arr[idx], maximum(arr, idx + 1))
 
 
-
 # https://leetcode.com/problems/fibonacci-number/
 def fibo(n):
     if n <= 1:
@@ -74,9 +73,56 @@ def fibo(n):
     return fibo(n - 1) + fibo(n - 2)
 
 # https://leetcode.com/problems/n-th-tribonacci-number/
+
+
 def tribonic(n):
-    return 1
+    if n <= 2:
+        return n if n <= 1 else 1
+
+    return tribonic(n - 1) + tribonic(n - 2) + tribonic(n - 3)
+
+# n = 5
+def experiment(n):
+    if n <= 1:
+        print("base: ", n)
+        return n
+
+    count = 0
+    print("pre: ", n)
+    count += experiment(n - 1)
+
+    print("in: ", n)
+
+    count += experiment(n - 2)
+    print("post: ", n)
+
+    return count + 3
+
+
+def experiment_02(n):
+    if n <= 2:
+        print("base: ", n)
+        return n
+
+    count = 0
+    print("pre: ", n)
+    count += experiment_02(n - 1)
+
+    print("in1: ", n)
+
+    count += experiment_02(n - 2)
+
+    print("in2: ", n)
+
+    count += experiment_02(n - 3)
+    print("post: ", n)
+
+    return count + 3
+
+
 
 # https://leetcode.com/problems/climbing-stairs/
+
+
 def climbingStairs():
     return 1
