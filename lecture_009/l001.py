@@ -65,12 +65,17 @@ def maximum(arr, idx):
 
     return max(arr[idx], maximum(arr, idx + 1))
 
+
+
 # https://leetcode.com/problems/fibonacci-number/
-
-
 def fibo(n):
-    return 1
+    if n <= 1:
+        return n
+    return fibo(n - 1) + fibo(n - 2)
 
+# https://leetcode.com/problems/n-th-tribonacci-number/
+def tribonic(n):
+    return 1
 
 # https://leetcode.com/problems/climbing-stairs/
 def climbingStairs():
