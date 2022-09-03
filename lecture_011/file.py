@@ -64,20 +64,43 @@ def sortString(str):
 def mazePath(sr, sc, er, ec, ans):
     if sr == er and sc == ec:
         print(ans)
-        return
+        return 1
 
+    count = 0
     if sr + 1 <= er:  # Horizontal
-        mazePath(sr + 1, sc, er, ec, ans + "H")
+        count += mazePath(sr + 1, sc, er, ec, ans + "H")
 
     if sr + 1 <= er and sc + 1 <= ec:  # Diagonal
-        mazePath(sr + 1, sc + 1, er, ec, ans + "D")
+        count += mazePath(sr + 1, sc + 1, er, ec, ans + "D")
 
     if sc + 1 <= ec:  # Vertical
-        mazePath(sr, sc + 1, er, ec, ans + "V")
+        count += mazePath(sr, sc + 1, er, ec, ans + "V")
 
+    return count
 
 def mazePathJump(sr, sc, er, ec, ans):
-    return -1
+    if sr == er and sc == ec:
+        print(ans)
+        return 1
+
+    count = 0
+
+    jump = 1
+    while sr + jump <= er:  # Horizontal
+        count += mazePathJump(sr + jump, sc, er, ec, ans + "H" + str(jump))
+        jump += 1
+
+    jump = 1
+    while sr + jump <= er and sc + jump <= ec:  # Diagonal
+        count += mazePathJump(sr + jump, sc + jump, er, ec, ans + "D" + str(jump))
+        jump += 1
+
+    jump = 1
+    while sc + jump <= ec:  # Vertical
+        count += mazePathJump(sr, sc + jump, er, ec, ans + "V" + str(jump))
+        jump += 1
+
+    return count
 
 
-mazePath(0, 0, 2, 2, "")
+print(mazePathJump(0, 0, 2, 2, ""))
