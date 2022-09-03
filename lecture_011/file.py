@@ -59,6 +59,25 @@ def sortString(str):
     return ans
 
 # sr: starting Row, sc: starting Column, er: ending Row, ec: Ending Column,
-def mazePath(sr, sc, er, ec, ans, MyAns):
 
+
+def mazePath(sr, sc, er, ec, ans):
+    if sr == er and sc == ec:
+        print(ans)
+        return
+
+    if sr + 1 <= er:  # Horizontal
+        mazePath(sr + 1, sc, er, ec, ans + "H")
+
+    if sr + 1 <= er and sc + 1 <= ec:  # Diagonal
+        mazePath(sr + 1, sc + 1, er, ec, ans + "D")
+
+    if sc + 1 <= ec:  # Vertical
+        mazePath(sr, sc + 1, er, ec, ans + "V")
+
+
+def mazePathJump(sr, sc, er, ec, ans):
     return -1
+
+
+mazePath(0, 0, 2, 2, "")
