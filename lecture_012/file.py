@@ -24,7 +24,6 @@ def floodFill_01(sr, sc, er, ec, vis, ans):
     vis[sr][sc] = False
     return count
 
-
 def maximumMoves(sr, sc, er, ec, vis):
     if sr == er and sc == ec:
         return 0
@@ -54,7 +53,7 @@ def maximumMoves(sr, sc, er, ec, vis):
         myMove = maximumMoves(sr - 1, sc + 0, er, ec, vis)
         if myMove != -1:
             moves = max(moves, myMove + 1)
-            
+
     vis[sr][sc] = False
     return moves
 
@@ -69,7 +68,38 @@ def floodFill():
         vis.append(v)
 
     # print(floodFill_01(sr, sc, er, ec, vis, ""))
-    print(maximumMoves(sr,sc,er,ec,vis))
+    print(maximumMoves(sr, sc, er, ec, vis))
 
 
-floodFill()
+def floodFill_02(sr, sc, er, ec, vis, dir, dirPath, ans):
+    if sr == er and sc == ec:
+        print(ans)
+        return 1
+
+    vis[sr][sc] = True
+    count = 0
+
+    for d in range(len(dir)):
+        r = sr + dir[d][0]
+        c = sc + dir[d][1]
+
+        if r >= 0 and c >= 0 and r <= er and c <= ec and vis[r][c] == False:
+            count += floodFill_02(r, c, er, ec, vis, dir, dirPath, ans + dirPath[d])
+
+    vis[sr][sc] = False
+    return count
+
+def floodFill_2():
+    sr, sc, er, ec = 0, 0, 2, 2
+    vis = []   # never use this statement vis = [[False] * 3] * 3
+    for i in range(er + 1):
+        v = []
+        for j in range(ec + 1):
+            v.append(False)
+        vis.append(v)
+
+    dir = [[0,1],[0,-1],[1,0],[-1,0]]
+    dirPath = ['R','L','D','U']
+
+    print(floodFill_02(sr, sc, er, ec, vis,dir,dirPath, ""))
+   
