@@ -24,6 +24,7 @@ def floodFill_01(sr, sc, er, ec, vis, ans):
     vis[sr][sc] = False
     return count
 
+
 def maximumMoves(sr, sc, er, ec, vis):
     if sr == er and sc == ec:
         return 0
@@ -84,10 +85,12 @@ def floodFill_02(sr, sc, er, ec, vis, dir, dirPath, ans):
         c = sc + dir[d][1]
 
         if r >= 0 and c >= 0 and r <= er and c <= ec and vis[r][c] == False:
-            count += floodFill_02(r, c, er, ec, vis, dir, dirPath, ans + dirPath[d])
+            count += floodFill_02(r, c, er, ec, vis, dir,
+                                  dirPath, ans + dirPath[d])
 
     vis[sr][sc] = False
     return count
+
 
 def floodFill_2():
     sr, sc, er, ec = 0, 0, 2, 2
@@ -98,8 +101,10 @@ def floodFill_2():
             v.append(False)
         vis.append(v)
 
-    dir = [[0,1],[0,-1],[1,0],[-1,0]]
-    dirPath = ['R','L','D','U']
+    dir = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+    dirPath = ['R', 'L', 'D', 'U']
 
-    print(floodFill_02(sr, sc, er, ec, vis,dir,dirPath, ""))
-   
+    print(floodFill_02(sr, sc, er, ec, vis, dir, dirPath, ""))
+
+
+# https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/
