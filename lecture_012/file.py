@@ -108,3 +108,6 @@ def floodFill_2():
 
 
 # https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/
+# direction order should be same for optimal answer
+# int xMove[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
+# int yMove[8] = { 1, 2, 2, 1, -1, -2, -2, -1 };
