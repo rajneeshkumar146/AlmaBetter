@@ -1,4 +1,7 @@
 # TC = O(N2), SC = O(1)
+from heapq import merge
+
+
 def bubbleSort(arr):
     l = len(arr)
     for i in range(l):
@@ -40,3 +43,39 @@ def insertionSort(arr):
         while j >= 0 and arr[j] > arr[j + 1]:
             arr[j], arr[j + 1] = arr[j + 1], arr[j]
             j -= 1
+
+
+def mergeTwoSortedList(A, B):
+    myAns = []
+    i, j = 0, 0
+
+    while i < len(A) and j < len(B):
+        if A[i] < B[j]:
+            myAns.append(A[i])
+            i += 1
+        else:
+            myAns.append(B[j])
+            j += 1
+
+    while i < len(A):
+        myAns.append(A[i])
+        i += 1
+
+    while j < len(B):
+        myAns.append(B[j])
+        j += 1
+
+    return myAns
+
+def mergeSort(arr, si, ei):
+    if si == ei:
+        return [arr[si]]
+
+    mid = (si + ei) // 2
+    leftHalf = mergeSort(arr, si , mid)
+    rightHalf = mergeSort(arr, mid + 1 , ei)
+
+    return mergeTwoSortedList(leftHalf, rightHalf)
+
+def mergeSort(arr):
+    return mergeSort(arr, 0, len(arr) - 1)
