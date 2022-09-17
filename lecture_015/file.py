@@ -39,7 +39,7 @@ def quickSort(arr, si, ei):
     if si >= ei:
         return
 
-    if isSubArraySorted(arr,si,ei):
+    if isSubArraySorted(arr, si, ei):
         return
 
     mid = (si + ei) // 2
@@ -58,14 +58,46 @@ def quickSort(arr):
 # T: O(NLogN)
 # S: O(LogN)
 
-def kthLargest_01(arr, maxlEle):
+
+# T: O(KN)
+def kthLargest_01(arr, maxEle):
+    ans = -1e9
+    for i in range(len(arr)):
+        if arr[i] < maxEle:
+            ans = max(ans, arr[i])
+
+    return ans
+
+# T: O(NLogN)
 
 
-def kthLargest(arr,k):
+def kthLargest_02(arr, k):
+    arr.sort()
+    n = len(arr)
+    return arr[n - k]
+
+
+def kthLargest(arr, k):
     maxEle = 1e9
 
     for i in range(k):
         maxEle = kthLargest_01(arr, maxEle)
 
 
-    
+# T: O(KLogN)
+def quickSelect(arr, kthIdx, si, ei):
+    mid = (si + ei) // 2
+    pivotIdx = segregateElements_02(arr, mid)   # O(N)
+    if pivotIdx == kthIdx:
+        return
+
+    if pivotIdx < kthIdx:
+        quickSelect(arr, kthIdx, pivotIdx + 1, ei)
+    else:
+        quickSelect(arr, kthIdx, si, pivotIdx - 1)
+
+
+def kthSmallest(arr, k):
+    n = len(arr)
+    quickSelect(arr, k - 1, 0, n - 1)
+    return arr[k - 1]
