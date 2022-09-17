@@ -21,7 +21,16 @@ def segregateElements_02(arr, index):
 
 
 def isSubArraySorted(arr, si, ei):
-    return False
+    prevEle = arr[si]
+    si += 1
+    while si <= ei:
+        if prevEle > arr[si]:
+            return False
+
+        prevEle = arr[si]
+        si += 1
+
+    return True
 
 
 # T = O(NLog(N)), Worst Case is: T(N2)
@@ -49,9 +58,14 @@ def quickSort(arr):
 # T: O(NLogN)
 # S: O(LogN)
 
-def kthLargest_01():
+def kthLargest_01(arr, maxlEle):
 
 
-def kthLargest():
-    
+def kthLargest(arr,k):
+    maxEle = 1e9
+
+    for i in range(k):
+        maxEle = kthLargest_01(arr, maxEle)
+
+
     
