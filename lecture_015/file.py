@@ -1,3 +1,6 @@
+from itertools import count
+
+
 def swap(arr, i, j):
     temp = arr[i]
     arr[i] = arr[j]
@@ -101,3 +104,27 @@ def kthSmallest(arr, k):
     n = len(arr)
     quickSelect(arr, k - 1, 0, n - 1)
     return arr[k - 1]
+
+
+def isAbleToEat(piles, hr, rateOfEating):
+    countHr = 0
+    for pile in piles:
+        countHr += ((pile - 1) // rateOfEating) + 1
+
+        if countHr > hr:
+            return False
+
+    return True
+
+
+def kokoEatingBnanans(piles, hr):
+    si, ei = 1, 1000000000 + 2
+
+    while si < ei:
+        rateOfEating = (si + ei) // 2
+        if isAbleToEat(piles, hr, rateOfEating):
+            ei = rateOfEating
+        else:
+            si = rateOfEating + 1
+
+    return ei
