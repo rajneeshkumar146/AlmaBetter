@@ -58,10 +58,32 @@ class MyLinkedList:
 
     # addAt(index)
     def addAtIndex(self, index: int, val: int) -> None:
+        if index == 0:
+            self.addAtHead(val)
+        elif index == self.size:
+            self.addAtTail(val)
+        else:
+            prevNode = self.getNodeAt(index - 1)
+            nextNode = prevNode.next
+
+            newNode = ListNode(val)
+
+            prevNode.next = newNode
+            newNode.next = nextNode
+
+            self.size += 1
 
     def deleteFirst(self):
+        deleteNode = self.head
+        self.head = self.head.next
+        deleteNode.next = None
+
+        if self.size == 1:
+            self.tail = None
+
+        self.size -= 1
 
     def deleteLast(self):
 
-    # DeleteAt(index)
+        # DeleteAt(index)
     def deleteAtIndex(self, index: int) -> None:
