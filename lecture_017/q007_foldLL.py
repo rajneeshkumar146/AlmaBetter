@@ -36,7 +36,7 @@ class Solution:
 
         c1, c2 = head, nHead
 
-        while c1 != None and c2 != None:
+        while c2 != None:
             f1, f2 = c1.next, c2.next
 
             c1.next = c2
