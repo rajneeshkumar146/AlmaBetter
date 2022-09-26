@@ -31,6 +31,7 @@ class Solution:
 
         midNode = self.middleNode(head)
         nHead = midNode.next
+        midNode.next = None
         nHead = self.reverseList(nHead)
 
         c1 , c2 = head, nHead

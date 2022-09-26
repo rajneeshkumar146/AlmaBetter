@@ -3,10 +3,11 @@ class ListNode:
         self.val = val
         self.next = next
 
+
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         dummy = ListNode(-1)
-        prev, c1 , c2 = dummy, list1, list2
+        prev, c1, c2 = dummy, list1, list2
 
         while c1 != None and c2 != None:
             if c1.val < c2.val:
@@ -18,24 +19,35 @@ class Solution:
 
             prev = prev.next
 
-
         if(c1 != None):
             prev.next = c1
-        else: 
+        else:
             prev.next = c2
-
 
         return dummy.next
 
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head == None or head.next == None:
+            return head
+        
         slow = head
         fast = head
-        
+
         while fast.next != None and fast.next.next != None:
             slow = slow.next
             fast = fast.next.next
-            
+
         return slow
-        
+
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        
+        if head == None or head.next == None:
+            return head
+            
+        midNode = self.middleNode(head)
+        nHead = midNode.next
+        midNode.next = None
+
+        list1 = self.sortList(head)
+        list2 = self.sortList(nHead)
+
+        return self.mergeTwoLists(list1, list2)
