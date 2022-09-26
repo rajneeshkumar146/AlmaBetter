@@ -5,5 +5,16 @@ class ListNode:
 
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev, curr = None, head
+
+        while curr != None:
+            forw = curr.next  # Backup
+
+            curr.next = prev  # link
+
+            prev = curr # move
+            curr = forw
+
+        return prev
         
         
