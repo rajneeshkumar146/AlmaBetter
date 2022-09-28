@@ -5,6 +5,7 @@ class ListNode:
 
 
 class Solution:
+    # T: O(2N), S: O(1)
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         slow, fast = head, head
 
@@ -27,4 +28,17 @@ class Solution:
 
         return slow
 
+    # T: O(3N), S: O(1)
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+
+        tail_1 = headA
+        while tail_1.next != None:
+            tail_1 = tail_1.next
+
+        tail_1.next = headB
+
+        IntersectingNode = self.detectCycle(headA)
+        tail_1.next = None
+
+        return IntersectingNode 
+        

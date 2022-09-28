@@ -5,6 +5,7 @@ class ListNode:
 
 
 class Solution:
+    # T: O(N), S: O(1)
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         slow, fast = head, head
 
