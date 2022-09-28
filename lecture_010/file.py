@@ -32,6 +32,8 @@ def keyPadProblem(str, words):
 words = ["", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
 
 # sp: starting point, ep: ending point
+
+
 def boardPath(sp, ep):
     if sp == ep:
         return [""]
@@ -43,9 +45,35 @@ def boardPath(sp, ep):
         for s in smallAns:
             myAns.append(str(dice) + s)
         dice += 1
-    
+
     return myAns
 
 
-def allPermutation(str):
-    return []
+def allPermutation(str, vis, count, myAns, ans):
+    if count == len(str):
+        myAns.append(ans)
+        return
+
+    l = len(str)
+    for i in range(l):
+        if vis[i] == False:
+            vis[i] = True
+            allPermutation(str, vis, count + 1, myAns, ans + str[i])
+            vis[i] = False
+
+def allPermutation():
+    myAns = []
+    vis = [False] * 3
+    allPermutation("abc",vis,0, myAns,"")
+    print(myAns)
+
+
+# no extra space
+def allUniquePermutation(str, vis, count, myAns, ans):
+    return 1
+
+def allUniquePermutation():
+    myAns = []
+    vis = [False] * 3
+    allUniquePermutation("aba",vis,0, myAns,"")
+    print(myAns)

@@ -69,11 +69,11 @@ def linearSearch(arr, data):
 def binarySearch(arr, data):
     l = len(arr)
     si = 0
-    li = l - 1
+    ei = l - 1
 
     while si <= ei:
         mid = (si + ei) // 2
-        if mid == data:
+        if arr[mid] == data:
             return mid
         elif arr[mid] < data:
             si = mid + 1

@@ -123,6 +123,5 @@ def experiment_02(n):
 
 # https://leetcode.com/problems/climbing-stairs/
 
-
 def climbingStairs():
     return 1
